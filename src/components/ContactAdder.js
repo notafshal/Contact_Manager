@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Dummy from "./Dummy";
 
 const ContactAdder = (props) => {
   const [name, setName] = useState("");
@@ -7,7 +6,7 @@ const ContactAdder = (props) => {
   const [location, setLocation] = useState("");
 
   const onClickHandler = () => {
-    const contactData = { name, contact: mobile, location };
+    const contactData = { id: Math.random(), name, contact: mobile, location };
     props.onContactAdded(contactData);
   };
   const dummyClickHandler = () => {
@@ -46,7 +45,6 @@ const ContactAdder = (props) => {
         <br />
         <button onClick={onClickHandler}>Click Me!</button>
       </div>
-      <Dummy onDummyClick={dummyClickHandler} />
     </>
   );
 };
