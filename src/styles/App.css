@@ -1,3 +1,36 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+body {
+  margin: 0px;
+  margin: 0px;
+}
+h3 {
+  text-align: center;
+}
+.nav_bar {
+  background: #9ebd9e;
+  font-size: 20px;
+  text-align: center;
+  padding: 10px;
+}
+input {
+  border: 0px;
+  padding: 10px;
+  margin: 2px;
+  border-radius: 20px;
+  outline: none;
+}
+button {
+  border: 0px;
+  padding: 10px;
+  margin: 2px;
+  border-radius: 20px;
+  outline: none;
+  background-color: #6e846e;
+  color: #fff;
+  cursor: pointer;
+}
 .contact_list {
   background-color: #ccc;
   padding: 1rem;

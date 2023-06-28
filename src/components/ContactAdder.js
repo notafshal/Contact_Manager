@@ -5,45 +5,54 @@ const ContactAdder = (props) => {
   const [mobile, setMobile] = useState("");
   const [location, setLocation] = useState("");
 
-  const onClickHandler = () => {
+  const onFormSubmitHandler = (e) => {
+    e.preventDefault();
     const contactData = { id: Math.random(), name, contact: mobile, location };
-    props.onContactAdded(contactData);
+    if (name.length <= 1 || mobile.length < 1 || location.length <= 1) {
+      alert("Please fill all the required fields");
+    } else {
+      props.onContactAdded(contactData);
+      setName("");
+      setMobile("");
+      setLocation("");
+    }
   };
-  const dummyClickHandler = () => {
-    props.childFunction();
-  };
+
   return (
     <>
       <div className="simpleAdder">
-        Contact adder:
+        <h3>Contact adder:</h3>
         <br />
-        <input
-          type="text"
-          placeholder="Your Name"
-          value={name}
-          onChange={(e) => {
-            setName(e.target.value);
-          }}
-        ></input>
-        <input
-          type="text"
-          placeholder="Number"
-          value={mobile}
-          onChange={(e) => {
-            setMobile(e.target.value);
-          }}
-        ></input>
-        <input
-          type="text"
-          placeholder="Location"
-          value={location}
-          onChange={(e) => {
-            setLocation(e.target.value);
-          }}
-        ></input>
-        <br />
-        <br />
-        <button onClick={onClickHandler}>Click Me!</button>
+        <form onSubmit={onFormSubmitHandler}>
+          <input
+            type="text"
+            placeholder="Your Name"
+            value={name}
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+          ></input>
+          <input
+            type="text"
+            placeholder="Number"
+            value={mobile}
+            onChange={(e) => {
+              setMobile(e.target.value);
+            }}
+          ></input>
+          <input
+            type="text"
+            placeholder="Location"
+            value={location}
+            onChange={(e) => {
+              setLocation(e.target.value);
+            }}
+          ></input>
+
+          <br />
+          <br />
+          <button>Add Contact</button>
+        </form>
       </div>
     </>
   );
